@@ -18,7 +18,7 @@
           <li class="nav-item">
             <a href="/MaSteR/daftar.php" class="nav-link">Daftar</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">Login</a>
           </li>
           <li class="nav-item dropdown">
@@ -27,7 +27,7 @@
               <li><a href="#" class="dropdown-item">Some action </a></li>
               <li><a href="#" class="dropdown-item">Some other action</a></li>                            
             </ul>
-          </li>
+          </li> -->
           
         </ul>
 
