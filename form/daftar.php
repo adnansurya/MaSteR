@@ -20,6 +20,9 @@ if(isset($_POST["submit"]) && !empty($_FILES["image"]["name"])){
     $file_type=$_FILES['image']['type'];
     $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
+    $temp = explode(".", $file_name);
+    $newfilename = $timestamp . '.' . end($temp);
+
     $extensions= array("jpeg","jpg","png");
     
     if(in_array($file_ext,$extensions)=== false){
@@ -31,7 +34,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["image"]["name"])){
     }
     
     if(empty($errors)==true){
-        if(move_uploaded_file($file_tmp,"uploads/".$file_name)){
+        if(move_uploaded_file($file_tmp,"../uploads/".$newfilename)){
             $sql = "INSERT INTO siswa(token, nama, tglLahir, nis, kelas, noHp, alamat, namaOrtu, noHpOrtu, foto, timestamp) VALUES 
             ('$token', '$nama', '$tglLahir', '$nis', '$kelas', '$noHp', '$alamat', '$namaOrtu', '$hpOrtu', '$newfilename' ,'$timestamp')";
             $result = mysqli_query($conn, $sql);
@@ -39,7 +42,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["image"]["name"])){
             if(!($result)){
                 echo 'Error query daftar';
             }else{
-                
+                header('Location: ../index.php'); 
             }
         }else{
             echo "Kesalahan Upload File";

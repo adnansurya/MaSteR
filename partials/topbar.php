@@ -13,7 +13,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html" class="nav-link">Beranda</a>
+            <a href="index.php" class="nav-link">Beranda</a>
           </li>
           <li class="nav-item">
             <a href="/MaSteR/daftar.php" class="nav-link">Daftar</a>

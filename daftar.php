@@ -121,12 +121,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="input-group">
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" id="imgFile" name="image">
-                            <label class="custom-file-label" for="imgFile">Format JPG/PNG Maks. 1 MB</label>
+                            <label class="custom-file-label" for="imgFile">Format JPG/PNG Maks. 1 MB</label>                            
                           </div>                          
                         </div>
                       </div> 
                     </div>                  
-                  </div>                     
+                  </div> 
+                  <div class="row justify-content-md-center">                 
+                    <div class="col-md-6">
+                      <img id="blah" src="#" alt="Preview" class="img-thumbnail"/>
+                    </div>                  
+                  </div>
                 </div>
                 <div class="card-footer">
                   <div class="row justify-content-md-center">                 
@@ -158,7 +163,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <?php include('partials/scripts.php') ?>
   <script src="plugins/jquery-ui/jquery-ui.js"></script>  
   <script>
-    $('#tglLahirTxt').datepicker({ dateFormat: 'yy-mm-dd' });      
+    $('#tglLahirTxt').datepicker({ dateFormat: 'yy-mm-dd' });
+
+    function readURL(input) {
+
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imgFile").change(function() {
+      readURL(this);
+    });      
   </script>
 </body>
 </html>
