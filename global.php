@@ -1,3 +1,3 @@
 <?php
-    $web_name = 'MASTER';
+    $web_name = 'MaSteR';
 ?>

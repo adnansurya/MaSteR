@@ -8,7 +8,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
  
   <?php include('partials/head.php'); ?>
-  <title><?php echo $web_name; ?>  | Blank</title>
+  <title><?php echo $web_name; ?>  | Daftar</title>
+  <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.css">
+  
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -37,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <form action="form/daftar.php" method="post">
+              <form action="form/daftar.php" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="row justify-content-md-center">
                     <h5 class="card-title">Form Pendaftaran</h5>
@@ -53,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="row justify-content-md-center">                 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="namaLengkapTxt">Nama</label>
+                        <label for="namaLengkapTxt">Nama Siswa</label>
                         <input type="text" class="form-control" id="namaTxt" placeholder="Masukkan Nama Lengkap" name="nama">
                       </div>
                     </div>                  
@@ -62,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="tglLahirTxt">Tanggal Lahir</label>
-                        <input type="text" class="form-control" id="tglLahirTxt" placeholder="Masukkan Tanggal Lahir" name="tglLahir">
+                        <input type="text" class="form-control" id="tglLahirTxt" placeholder="Tahun-Bulan-Tanggal (Contoh : 2000-10-31)" name="tglLahir">
                       </div>
                     </div>                  
                   </div>
@@ -83,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="row justify-content-md-center">                 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="noHpTxt">No. HP</label>
+                        <label for="noHpTxt">No. HP Siswa</label>
                         <input type="text" class="form-control" id="noHpTxt" placeholder="Masukkan Nomor Handphone" name="noHp">
                       </div>
                     </div>                  
@@ -111,7 +113,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" class="form-control" id="hpOrtuTxt" placeholder="Masukkan Nomor Handphone Orang Tua" name="hpOrtu">
                       </div>
                     </div>                  
-                  </div>    
+                  </div>
+                  <div class="row justify-content-md-center">                 
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputFile">Foto 3x4</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="imgFile" name="image">
+                            <label class="custom-file-label" for="imgFile">Format JPG/PNG Maks. 1 MB</label>
+                          </div>                          
+                        </div>
+                      </div> 
+                    </div>                  
+                  </div>                     
                 </div>
                 <div class="card-footer">
                   <div class="row justify-content-md-center">                 
@@ -141,5 +156,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
   <?php include('partials/scripts.php') ?>
+  <script src="plugins/jquery-ui/jquery-ui.js"></script>  
+  <script>
+    $('#tglLahirTxt').datepicker({ dateFormat: 'yy-mm-dd' });      
+  </script>
 </body>
 </html>
