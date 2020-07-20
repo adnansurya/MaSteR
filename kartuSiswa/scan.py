@@ -32,7 +32,7 @@ while True:
         uid = uid_line.split(':')[1].strip()
         uid = uid.replace('  ', '')
         print(uid)
-        subprocess.call("fswebcam -r 1280x720 /home/pi/images.jpg",shell=True)
+        subprocess.call("fswebcam -r 640x480 /home/pi/images.jpg",shell=True)
         #print('PIC CAPTURED: ' + waktu)
         gambar = encodeimg64()
         #print(gambar)
