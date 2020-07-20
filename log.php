@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tbody>
                     <?php
                         include('db_access.php');
-                        $load = mysqli_query($conn, "SELECT log.id_log, log.gambar, log.waktu, siswa.nama, siswa.nis, siswa.kelas, siswa.foto FROM log INNER JOIN siswa ON log.token = siswa.token ORDER BY id_log DESC");   
+                        $load = mysqli_query($conn, "SELECT log.id_log, log.gambar, log.waktu, siswa.nama, siswa.nis, siswa.kelas, siswa.foto FROM log INNER JOIN siswa ON log.token = siswa.id_token ORDER BY id_log DESC");   
                         while ($row = mysqli_fetch_array($load)){
                           echo '<tr>';
                           echo '<td>'.$row['id_log'].'</td>';

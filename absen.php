@@ -24,7 +24,7 @@ if(isset($_POST["token"]) && isset($_POST["gambar"]) ) {
                            
     }else{         
         
-        $registered = mysqli_query($conn,"SELECT * FROM siswa WHERE token='".$token."'");
+        $registered = mysqli_query($conn,"SELECT * FROM siswa WHERE id_token='".$token."'");
         
         if(mysqli_num_rows($registered) > 0){
             $r = mysqli_fetch_assoc($registered); 
