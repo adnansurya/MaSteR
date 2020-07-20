@@ -43,6 +43,11 @@ while True:
             'waktu' : waktu
         }
         r = requests.post(url = apiurl, data = data) 
-        pastebin_url = r.text 
-        print("The pastebin URL is:%s"%pastebin_url)  
+        response_text = r.text 
+        print("RESPONSE : %s"%response_text)
+        
+        jsonRes = json.loads(response_text);
+        print(jsonRes['result'])
+        print(jsonRes['data']['nama'])  
+        print(jsonRes['data']['waktu'])  
 
