@@ -63,7 +63,7 @@
                         <th>Nama Ortu</th>
                         <th>HP Ortu</th>
                         <th>Foto</th>
-                        <th>Mulai</th>
+                        <!-- <th>Mulai</th> -->
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
@@ -87,7 +87,7 @@
                           echo '<td>'.$row['namaOrtu'].'</td>'; 
                           echo '<td>'.$row['noHpOrtu'].'</td>';  
                           echo '<td>'.$row['foto'].'</td>';                                               
-                          echo '<td>'.$row['timestamp'].'</td>';                                               
+                          // echo '<td>'.$row['timestamp'].'</td>';                                               
                           echo '</tr>';
                         }    
                         
