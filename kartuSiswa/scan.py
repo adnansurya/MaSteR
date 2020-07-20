@@ -32,7 +32,7 @@ while True:
         uid = uid_line.split(':')[1].strip()
         uid = uid.replace('  ', '')
         print(uid)
-        subprocess.call("fswebcam /home/pi/images.jpg",shell=True)
+        subprocess.call("fswebcam -r 1280x720 /home/pi/images.jpg",shell=True)
         #print('PIC CAPTURED: ' + waktu)
         gambar = encodeimg64()
         #print(gambar)
@@ -46,8 +46,14 @@ while True:
         response_text = r.text 
         print("RESPONSE : %s"%response_text)
         
-        jsonRes = json.loads(response_text);
-        print(jsonRes['result'])
-        print(jsonRes['data']['nama'])  
-        print(jsonRes['data']['waktu'])  
+        jsonRes = json.loads(response_text)
+        responResult = jsonRes['result']
+        print(responResult)
+        if responResult == "success":           
+            print(jsonRes['data']['nama'])  
+            print(jsonRes['data']['waktu'])
+        elif responResult == "unknown":
+            print("Token : %s"%jsonRes['data'])
+        elif responResult == "error":
+            print("Server Error : %s"%jsonRes['data'])  
 

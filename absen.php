@@ -24,14 +24,21 @@ if(isset($_POST["token"]) && isset($_POST["gambar"]) ) {
                            
     }else{         
         
-        $result = mysqli_query($conn,"SELECT * FROM siswa WHERE token='".$token."' LIMIT 1");                       
-        $r = mysqli_fetch_assoc($result); 
-
-        $data -> nama = $r['nama'];
-        $data -> waktu = $waktu;
+        $registered = mysqli_query($conn,"SELECT * FROM siswa WHERE token='".$token."'");
         
-        $resObj -> result = "success";
-        $resObj -> data = $data;
+        if(mysqli_num_rows($registered) > 0){
+            $r = mysqli_fetch_assoc($registered); 
+
+            $data -> nama = $r['nama'];
+            $data -> waktu = $waktu;
+            
+            $resObj -> result = "success";
+            $resObj -> data = $data;
+        }else{
+            $resObj -> result = "unknown";
+            $resObj -> data = $token;
+        }
+        
 
         echo json_encode($resObj);
     }

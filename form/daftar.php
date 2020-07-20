@@ -34,18 +34,27 @@ if(isset($_POST["submit"]) && !empty($_FILES["image"]["name"])){
     }
     
     if(empty($errors)==true){
-        if(move_uploaded_file($file_tmp,"../foto/".$newfilename)){
-            $sql = "INSERT INTO siswa(token, nama, tglLahir, nis, kelas, noHp, alamat, namaOrtu, noHpOrtu, foto, timestamp) VALUES 
-            ('$token', '$nama', '$tglLahir', '$nis', '$kelas', '$noHp', '$alamat', '$namaOrtu', '$hpOrtu', '$newfilename' ,'$timestamp')";
-            $result = mysqli_query($conn, $sql);
-            
-            if(!($result)){
-                echo 'Error query daftar';
+        $logged = mysqli_query($conn,"SELECT * from log WHERE token='".$token."'");
+        if(mysqli_num_rows($logged) > 0){        
+        
+            if(move_uploaded_file($file_tmp,"../foto/".$newfilename)){
+
+                $sql = "INSERT INTO siswa(token, nama, tglLahir, nis, kelas, noHp, alamat, namaOrtu, noHpOrtu, foto, timestamp) VALUES 
+                ('$token', '$nama', '$tglLahir', '$nis', '$kelas', '$noHp', '$alamat', '$namaOrtu', '$hpOrtu', '$newfilename' ,'$timestamp')";
+                $result = mysqli_query($conn, $sql);
+                
+                if(!($result)){
+                    echo 'Error query daftar';
+                }else{
+                    header('Location: ../index.php'); 
+                }
             }else{
-                header('Location: ../index.php'); 
+                echo "Kesalahan Upload File";
             }
-        }else{
-            echo "Kesalahan Upload File";
+
+            
+        }else{            
+            echo 'Token tidak dikenali. Tap Kartu pada Scanner untuk mendapatkan token';
         }        
         
     }else{
