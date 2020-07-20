@@ -13,13 +13,27 @@ if(isset($_POST["token"]) && isset($_POST["gambar"]) ) {
 
     $namapic = $timestamp.'.jpg';
 
-    $sql = "INSERT INTO log (token,foto,waktu) VALUES ('$token','$namapic','$waktu')";        
+    $sql = "INSERT INTO log (token,foto,waktu) VALUES ('$token','$namapic','$waktu')";    
+    
+    $resObj -> result = "";
 
     if (!mysqli_query($conn,$sql)){
-        echo "Terjadi Kesalahan.<br>"; 
-        echo("Error description: " . mysqli_error($conn));         
-    }else{
-        echo 'berhasil';
+        
+        $resObj -> result = "error";
+        $resObj -> data = "Error description: " . mysqli_error($conn);
+                           
+    }else{         
+        
+        $result = mysqli_query($conn,"SELECT * FROM siswa WHERE token='".$token."' LIMIT 1");                       
+        $r = mysqli_fetch_assoc($result); 
+
+        $data -> nama = $r['nama'];
+        $data -> waktu = $waktu;
+        
+        $resObj -> result = "success";
+        $resObj -> data = $data;
+
+        echo json_encode($resObj);
     }
    
 
