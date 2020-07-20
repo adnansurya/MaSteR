@@ -16,6 +16,9 @@
             <a href="index.php" class="nav-link">Beranda</a>
           </li>
           <li class="nav-item">
+            <a href="log.php" class="nav-link">Log</a>
+          </li>
+          <li class="nav-item">
             <a href="/MaSteR/daftar.php" class="nav-link">Daftar</a>
           </li>
           <!-- <li class="nav-item">

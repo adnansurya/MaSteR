@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 19, 2020 at 11:08 PM
+-- Generation Time: Jul 20, 2020 at 07:40 PM
 -- Server version: 10.1.44-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
@@ -29,9 +29,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `log` (
   `id_log` int(10) NOT NULL,
   `token` varchar(30) NOT NULL,
-  `foto` varchar(100) NOT NULL,
+  `gambar` varchar(100) NOT NULL,
   `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`id_log`, `token`, `gambar`, `waktu`) VALUES
+(1, 'sds', 'asdsa', '2020-07-08 05:00:00'),
+(2, 'as87d89', 'anu.jpg', '2020-07-08 05:00:00'),
+(3, 'as8d78fkh', '2020-07-08 05:00:00.jpg', '2020-07-08 05:00:00'),
+(4, 'as8d78fkh', '1595240214.jpg', '2020-07-20 18:16:54');
 
 -- --------------------------------------------------------
 
@@ -78,7 +88,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `siswa`
 --

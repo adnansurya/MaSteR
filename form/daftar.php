@@ -34,7 +34,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["image"]["name"])){
     }
     
     if(empty($errors)==true){
-        if(move_uploaded_file($file_tmp,"../uploads/".$newfilename)){
+        if(move_uploaded_file($file_tmp,"../foto/".$newfilename)){
             $sql = "INSERT INTO siswa(token, nama, tglLahir, nis, kelas, noHp, alamat, namaOrtu, noHpOrtu, foto, timestamp) VALUES 
             ('$token', '$nama', '$tglLahir', '$nis', '$kelas', '$noHp', '$alamat', '$namaOrtu', '$hpOrtu', '$newfilename' ,'$timestamp')";
             $result = mysqli_query($conn, $sql);

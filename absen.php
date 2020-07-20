@@ -13,7 +13,7 @@ if(isset($_POST["token"]) && isset($_POST["gambar"]) ) {
 
     $namapic = $timestamp.'.jpg';
 
-    $sql = "INSERT INTO log (token,foto,waktu) VALUES ('$token','$namapic','$waktu')";    
+    $sql = "INSERT INTO log (token,gambar,waktu) VALUES ('$token','$namapic','$waktu')";    
     
     $resObj -> result = "";
 
